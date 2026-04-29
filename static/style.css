@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Noir comme Netflix */
+    color: #fff; /* Texte blanc */
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #e50914; /* Rouge Netflix */
+}
+
+.video-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stars {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Étoile inactive = grisée */
+.star {
+    font-size: 40px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    filter: grayscale(1) opacity(0.35);
+    user-select: none;
+}
+
+/* Étoile active (remplie) = couleur normale */
+.star.active {
+    filter: none;
+}
+
+/* Survol = légère animation */
+.star.hover {
+    transform: scale(1.15);
+    filter: none;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+button {
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #f40612;
+}
+
+#resultats {
+    margin-top: 30px;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #333;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.erreur {
+    color: #ff6b6b;
+}
+
+.succes {
+    color: #51cf66;
+}

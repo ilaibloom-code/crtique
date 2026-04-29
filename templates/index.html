@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critique Vidéo - Projet NSI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Regardez la vidéo et donnez votre avis</h1>
+
+    <!-- Vidéo placeholder - remplacez par votre vidéo réelle -->
+    <div class="video-container">
+        <video controls width="640" height="360">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+    </div>
+
+    <h2>Questionnaire</h2>
+
+    <div class="stars" id="stars">
+        <span class="star" data-n="1">⭐</span>
+        <span class="star" data-n="2">⭐</span>
+        <span class="star" data-n="3">⭐</span>
+        <span class="star" data-n="4">⭐</span>
+        <span class="star" data-n="5">⭐</span>
+    </div>
+
+    <p id="msg-vote"></p>
+
+    <form id="form">
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <br>
+        <label for="commentaire">Commentaire:</label>
+        <textarea id="commentaire" name="commentaire" rows="4" cols="50"></textarea>
+        <br>
+        <button type="button" id="btn-envoyer" onclick="envoyerFormulaire()">Envoyer</button>
+    </form>
+
+    <div id="resultats">
+        <h3>Résultats actuels</h3>
+        <p>Moyenne actuelle: {{ data.moyenne }}/5 ({{ data.nb_votes }} votes)</p>
+        <h4>Historique des votes</h4>
+        <ul>
+        {% for vote in data.historique %}
+            <li>Note: {{ vote.note }}, Prénom: {{ vote.prenom }}, Commentaire: {{ vote.commentaire }}, Moyenne: {{ vote.moyenne }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
